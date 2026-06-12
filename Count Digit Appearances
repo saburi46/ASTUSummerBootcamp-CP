@@ -1,0 +1,13 @@
+class Solution:
+    def countDigitOccurrences(self, nums: list[int], digit: int) -> int:
+  
+        ans = 0
+        for x in nums:
+            
+            if x == 0 and digit == 0:
+                ans += 1
+            while x > 0:
+                if x % 10 == digit:
+                    ans += 1
+                x //= 10
+        return ans

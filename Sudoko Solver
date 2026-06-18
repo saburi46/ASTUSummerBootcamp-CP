@@ -1,0 +1,21 @@
+class Solution:
+    def solveSudoku(self, board: List[List[str]]) -> None:
+        self.backtrack(board)
+        
+    def backtrack(self, board: List[List[str]]) -> bool:
+        for r in range(9):
+            for c in range(9):
+                if board[r][c] == '.':
+                    for n in map(str, range(1, 10)):
+                        if self.is_valid(board, r, c, n):
+                            board[r][c] = n
+                            if self.backtrack(board): return True
+                            board[r][c] = '.'
+                    return False
+        return True
+
+    def is_valid(self, board: List[List[str]], r: int, c: int, n: str) -> bool:
+        for i in range(9):
+            if board[r][i] == n or board[i][c] == n: return False
+            if board[3*(r//3) + i//3][3*(c//3) + i%3] == n: return False
+        return True

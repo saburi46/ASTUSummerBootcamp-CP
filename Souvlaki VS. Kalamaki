@@ -6,12 +6,12 @@ for _  in range(t):
 
     do.sort()
     can = True
-    for i in range(1 ,n-1, 1):
+    for i in range(1 ,n-1, 2):
         if do[i] != do[i+1]:
             can = False
             break
             
     if can:
-        print("YES")
-    if not can: 
-        print("NO")
+         print("YES")
+    else: 
+         print("NO")

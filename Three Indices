@@ -1,0 +1,21 @@
+t = int(input())
+for _ in range(t):
+    n = int(input())
+    p = list(map(int, input().split()))
+
+
+    can = False
+    for i in range(n-2):
+        for j in range(i+1, n-1):
+            for k in range(j+1, n):
+                if p[j] > p[i] and p[j] > p[k]:
+                    can = True
+                    print("YES")
+                    print(i+1, j+1, k+1)
+                    break
+            if can:
+                break
+        if can:
+            break
+    if not can:
+        print("NO")
